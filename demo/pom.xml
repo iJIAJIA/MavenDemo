@@ -42,19 +42,6 @@
 			<artifactId>persistence-api</artifactId>
 			<version>1.0</version>
 		</dependency>
-		<!-- -->
-		<dependency>
-			<groupId>com.ule.shoppingOrderMgtEjb</groupId>
-			<artifactId>shoppingOrderMgtEjb</artifactId>
-			<version>beta-3.0.0</version>
-			<type>ejb</type>
-		</dependency>
-		<dependency>
-			<groupId>com.ule.shoppingOrderEjb</groupId>
-			<artifactId>shoppingOrderEjb</artifactId>
-			<version>beta-3.0.0</version>
-			<type>ejb</type>
-		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
