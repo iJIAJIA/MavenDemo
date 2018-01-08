@@ -27,19 +27,18 @@ public class StringInternTest {
 	
 	@Test
 	public void testIntern() {
-//		String.intern
-		String s1 = new String("hello");
+//		执行String.intern()方法,如果常量池中存在当前字符串, 就会直接返回当前字符串. 如果常量池中没有此字符串, 会将此字符串放入常量池中后, 再返回。
+//		jdk6由于常量池存放"永久区",jdk6会在永久区新建一个字符串对象
+//		jdk7将常量池移到堆(heap)中,因此是在常量池新建一个该字符串的引用
+		String s1 = new String("he") + new String("llo");
 		s1.intern();
 		String s2 = "hello";
-		System.out.println(s1 == s2);
+		System.out.println(s1 == s2); // 在jdk6里,这里为false;jdk7,这里为true,由于在s2声明之前,s1执行了intern方法,此时常量池里的"hello"为s1的引用,故s2的地址
+									  // 等同于s1的地址
 		
-		String s3 = new String("world");
+		String s3 = new String("wo") + new String("rld");
 		String s4 = "world";
 		s3.intern();
-		System.out.println(s3 == s4);
-		
-		String s5 = "hello";
-		String s6 = "hello";
-		System.out.println(s5 == s6);
+		System.out.println(s3 == s4); //这里都为false
 	}
 }
