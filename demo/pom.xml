@@ -31,5 +31,99 @@
 			<artifactId>poi</artifactId>
 			<version>3.11</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<!-- -->
+		<dependency>
+			<groupId>com.ule.shoppingOrderMgtEjb</groupId>
+			<artifactId>shoppingOrderMgtEjb</artifactId>
+			<version>beta-3.0.0</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>com.ule.shoppingOrderEjb</groupId>
+			<artifactId>shoppingOrderEjb</artifactId>
+			<version>beta-3.0.0</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.7.4</version>
+			<scope>compile</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.11</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/fr.inria.gforge.spoon/spoon-core -->
+		<dependency>
+			<groupId>fr.inria.gforge.spoon</groupId>
+			<artifactId>spoon-core</artifactId>
+			<version>5.9.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/args4j/args4j -->
+		<dependency>
+			<groupId>args4j</groupId>
+			<artifactId>args4j</artifactId>
+			<version>2.0.29</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<!-- <dependency> <groupId>fr.inria.gforge.spoon</groupId> <artifactId>spoon-core</artifactId> 
+			<version>6.0.0-SNAPSHOT</version> </dependency> -->
+		<dependency>
+			<groupId>com.google.collections</groupId>
+			<artifactId>google-collections</artifactId>
+			<version>1.0-rc2</version>
+		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+					<debug>true</debug>
+					<fork>true</fork>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>central</id>
+			<name>Maven Repository Switchboard</name>
+			<url>http://maven.beta.ulechina.tom.com/artifactory/repo</url>
+		</repository>
+		<repository>
+			<id>gforge.inria.fr-snapshot</id>
+			<name>Maven Repository for Spoon Snapshot</name>
+			<url>http://spoon.gforge.inria.fr/repositories/snapshots/</url>
+			<snapshots />
+		</repository>
+	</repositories>
 </project>
