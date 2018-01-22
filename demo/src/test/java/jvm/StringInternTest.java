@@ -33,8 +33,10 @@ public class StringInternTest {
 		String s1 = new String("he") + new String("llo");
 		s1.intern();
 		String s2 = "hello";
-		System.out.println(s1 == s2); // 在jdk6里,这里为false;jdk7,这里为true,由于在s2声明之前,s1执行了intern方法,此时常量池里的"hello"为s1的引用,故s2的地址
-									  // 等同于s1的地址
+		// 在jdk6里,这里为false;
+	    // jdk7,这里为true,由于在s2声明之前,s1执行了intern方法,此时常量池里的"hello"为s1的引用,故s2的地址
+	    // 等同于s1的地址
+		System.out.println(s1 == s2); 
 		
 		String s3 = new String("wo") + new String("rld");
 		String s4 = "world";
