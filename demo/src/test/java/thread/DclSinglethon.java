@@ -74,11 +74,12 @@ public class DclSinglethon {
 		return target;
 	}
 	*/
-	
+//	第二把锁
 	private volatile  static DclSinglethon target;
 	
 	public static DclSinglethon getInstance() {
 		if(target == null) {
+//			第一把锁
 			synchronized (DclSinglethon.class) {
 				if(target == null) {
 					target = new DclSinglethon();
