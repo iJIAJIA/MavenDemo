@@ -49,17 +49,45 @@ public class DclSinglethon {
 	}
 	*/
 //	TODO 
-	private static DclSinglethon target;
+	/*
+	private  static DclSinglethon target;
 	
 	public static DclSinglethon getInstance() {
 		if(target == null) {
 			synchronized (DclSinglethon.class) {
 //				TODO synchronized为什么不能保证 target = new DclSinglethon()的原子性?
+//				由于target = new DclSinglethon() 分为如下3个步骤
+//				1.new thread.DclSinglethon [1] 给DclSinglethon分配内存 
+//			    dup
+//			    2.invokespecial thread.DclSinglethon() [19] 初始化DclSinglethon 
+//			    3.putstatic thread.DclSinglethon.target : thread.DclSinglethon [17] 将target指向DclSinglethon的实例内存地址
+//			    aload_0
+//				这里执行的顺序可以为 1-2-3或者1-3-2
+//				当顺序为1-3-2时,线程1在执行到3步骤时,线程2刚好调用getInstance,因为target此时已经不为null,所以直接返回实例对象
+//				之后由于实例对象还未初始化,线程2对实例的调用会报错
+//				解决方法,给target加上volatile修饰符,保证target = new DclSinglethon()执行顺序的有序性
 				if(target == null) {
 					target = new DclSinglethon();
 				}
 			}
 		}
 		return target;
+	}
+	*/
+	
+	private volatile  static DclSinglethon target;
+	
+	public static DclSinglethon getInstance() {
+		if(target == null) {
+			synchronized (DclSinglethon.class) {
+				if(target == null) {
+					target = new DclSinglethon();
+				}
+			}
+		}
+		return target;
+	}
+	public static void main(String[] args) {
+		DclSinglethon.getInstance();
 	}
 }
