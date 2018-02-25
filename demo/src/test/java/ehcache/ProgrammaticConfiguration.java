@@ -33,9 +33,9 @@ public class ProgrammaticConfiguration {
 		
 		System.out.println(preConfigured.containsKey(1L));
 		
-		Cache<Long, String> myCache = cacheManager
+		Cache<Long, Object> myCache = cacheManager
 				.createCache("myCache", CacheConfigurationBuilder
-						.newCacheConfigurationBuilder(Long.class, String.class,
+						.newCacheConfigurationBuilder(Long.class, Object.class,
 								ResourcePoolsBuilder.heap(10)));
 
 		for(int i = 0;i <12;i++) {
@@ -47,7 +47,7 @@ public class ProgrammaticConfiguration {
 			System.out.println(type.getKey());
 //			
 		}
-		String value = myCache.get(1L);
+		String value = (String) myCache.get(1L);
 		System.out.println(value);
 		
 //		设置有效期

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xmlns='http://www.ehcache.org/v3'
+	xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core.xsd">
+
+	<cache alias="foo">
+		<key-type>java.lang.String</key-type>
+		<value-type>java.lang.String</value-type>
+		<resources>
+			<heap unit="entries">2000</heap>
+			<!-- 
+			堆外内存,将你的对象从堆中脱离出来序列化，然后存储在一大块内存中，这就像它存储到磁盘上上一样，但它仍然在RAM中。
+			对象在这种状态下不能直接使用，它们必须首先反序列化。
+			也不受垃圾收集。序列化和反序列化会影响性能。
+			使用堆外内存能够降低GC导致的暂停。
+			 -->
+			<offheap unit="MB">500</offheap>
+		</resources>
+	</cache>
+	<cache-template name="myDefaults">
+		<key-type>java.lang.Long</key-type>
+		<value-type>java.lang.String</value-type>
+		<heap unit="entries">200</heap>
+	</cache-template>
+
+	<cache alias="bar" uses-template="myDefaults">
+		<key-type>java.lang.Number</key-type>
+	</cache>
+
+	<cache alias="simpleCache" uses-template="myDefaults" />
+
+</config>
