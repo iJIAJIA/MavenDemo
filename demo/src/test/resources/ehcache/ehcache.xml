@@ -17,6 +17,7 @@
 			<offheap unit="MB">500</offheap>
 		</resources>
 	</cache>
+	<!--  当多个缓存池拥有相同的缓存配置时,可以使用cache-template进行统一配置 -->
 	<cache-template name="myDefaults">
 		<key-type>java.lang.Long</key-type>
 		<value-type>java.lang.String</value-type>
