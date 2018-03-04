@@ -217,7 +217,9 @@ public class ReentrantLockExt implements Lock, java.io.Serializable {
         }
 
         protected final boolean tryAcquire(int acquires) {
-            return nonfairTryAcquire(acquires);
+        	boolean result = nonfairTryAcquire(acquires);
+        	System.out.printf("nonfairTryAcquire result: %b %n",result);
+            return result;
         }
     }
 
