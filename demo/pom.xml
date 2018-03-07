@@ -85,6 +85,23 @@
 			<artifactId>ehcache</artifactId>
 			<version>3.4.0</version>
 		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>3.4.6</version>
+			<type>pom</type>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -104,14 +121,6 @@
 	</build>
 
 	<repositories>
-		<repository>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<id>central</id>
-			<name>Maven Repository Switchboard</name>
-			<url>http://maven.beta.ulechina.tom.com/artifactory/repo</url>
-		</repository>
 		<repository>
 			<id>gforge.inria.fr-snapshot</id>
 			<name>Maven Repository for Spoon Snapshot</name>
