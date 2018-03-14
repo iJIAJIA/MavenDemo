@@ -98,9 +98,14 @@
 			<groupId>org.apache.zookeeper</groupId>
 			<artifactId>zookeeper</artifactId>
 			<version>3.4.6</version>
-			<type>pom</type>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>4.3.14.RELEASE</version>
+		</dependency>
 
 	</dependencies>
 
@@ -121,11 +126,11 @@
 	</build>
 
 	<repositories>
-		<repository>
+		<!-- <repository>
 			<id>gforge.inria.fr-snapshot</id>
 			<name>Maven Repository for Spoon Snapshot</name>
 			<url>http://spoon.gforge.inria.fr/repositories/snapshots/</url>
 			<snapshots />
-		</repository>
+		</repository> -->
 	</repositories>
 </project>
