@@ -12,7 +12,7 @@ public class DateUtils {
 		try {
 			return sdf.parse(dateStr);
 		} catch (ParseException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 		return null;
 	}

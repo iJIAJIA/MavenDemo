@@ -2,8 +2,6 @@ package spoon;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import spoon.processing.AbstractProcessor;
 import spoon.reflect.declaration.CtElement;
@@ -13,8 +11,6 @@ import spoon.support.reflect.code.CtInvocationImpl;
 import spoon.support.reflect.declaration.CtMethodImpl;
 
 public class MethodExecutionProcessor extends AbstractProcessor<CtMethodImpl> {
-	private static Logger logger = LoggerFactory
-			.getLogger(MethodExecutionProcessor.class);
 
 	@Override
 	public void process(CtMethodImpl ctMethod) {

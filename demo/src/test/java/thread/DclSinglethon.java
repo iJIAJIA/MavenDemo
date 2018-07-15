@@ -75,7 +75,7 @@ public class DclSinglethon {
 	}
 	*/
 //	第二把锁
-	private volatile  static DclSinglethon target;
+	private volatile static DclSinglethon target;
 	
 	public static DclSinglethon getInstance() {
 		if(target == null) {

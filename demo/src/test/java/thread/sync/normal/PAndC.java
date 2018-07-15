@@ -87,7 +87,7 @@ public class PAndC {
 		
 		
 		
-		public void produce(int val) {
+		public void produce(final int val) {
 			new Thread(new Runnable() {
 				
 				@Override
@@ -106,7 +106,7 @@ public class PAndC {
 			this.depot = depot;
 		}
 		
-		public void consumer(int val) {
+		public void consumer(final int val) {
 			new Thread(new Runnable() {
 				
 				@Override

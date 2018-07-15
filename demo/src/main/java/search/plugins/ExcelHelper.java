@@ -12,6 +12,8 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
 public class ExcelHelper {
+	
+	
 	/**
 	 * 
 	 * @param wb
@@ -111,4 +113,5 @@ public class ExcelHelper {
 			sheet.setColumnWidth(i, 20*256);
 		}
 	}
+	
 }
