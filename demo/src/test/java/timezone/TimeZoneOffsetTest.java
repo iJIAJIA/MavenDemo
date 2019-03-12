@@ -3,6 +3,7 @@ package timezone;
 import java.time.ZoneOffset;
 import java.util.TimeZone;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class TimeZoneOffsetTest {
@@ -15,10 +16,22 @@ public class TimeZoneOffsetTest {
 	 */
 	@Test
 	public void test() {
-		TimeZone timeZone = TimeZone.getTimeZone(ZoneOffset.ofHoursMinutes(8, 00));
-		TimeZone timeZone2 = TimeZone.getTimeZone("Asia/Shanghai");
-		System.out.printf("timezoneFromOffset:%d,timezoneFromZoneId:%d",timeZone.getRawOffset(),timeZone2.getRawOffset());
-		
+		// 当地时间比格林尼治早8个小时，即东8区
+		ZoneOffset offset8HoursEarly = ZoneOffset.ofHoursMinutes(8, 00);
+		TimeZone timeZone8HourEarly = TimeZone.getTimeZone(offset8HoursEarly);
+		// 北京的时区
+		TimeZone beijingTimeZone = TimeZone.getTimeZone("Asia/Shanghai");
+		// 两者跟格林尼治的偏移量是相等的 8小时
+		Assert.assertEquals(timeZone8HourEarly.getRawOffset(), beijingTimeZone.getRawOffset());
+		// javascript的 new Date().getTimezoneOffset(); 是 <b>格林尼治-当地时间</b>的 时间差，精确到分钟。</br>
+		// 这里为东8区
+		int offsetFromJs = -480;
+		// 进行正负转换
+		int offsetInJava = -offsetFromJs;
+		ZoneOffset zoneOffset = ZoneOffset.ofHoursMinutes(offsetInJava /60 , offsetInJava % 60);
+		TimeZone timeZone = TimeZone.getTimeZone(zoneOffset);
+		// 与 北京跟格林尼治的偏移量是一样的
+		Assert.assertEquals(timeZone.getRawOffset(), beijingTimeZone.getRawOffset());
 	}
 	
 	/**
@@ -38,6 +51,12 @@ public class TimeZoneOffsetTest {
 		long result = current/(1000*3600*24)*(1000*3600*24);
 		long timezoneOffset = TimeZone.getDefault().getRawOffset();
 		System.out.printf("result:%d,offset:%d,sum:%d",result,timezoneOffset,result-timezoneOffset);
+	}
+	
+	@Test
+	public void test3() {
+		Assert.assertEquals(-8,-480 / 60);
+		Assert.assertEquals(-1,-481 % 60);
 	}
 	
 }
