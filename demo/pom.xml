@@ -30,7 +30,7 @@
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
-			<version>3.11</version>
+			<version>3.14</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
 		<dependency>
@@ -135,6 +135,39 @@
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.aliyun</groupId>
+			<artifactId>aliyun-java-sdk-core</artifactId>
+			<version>4.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aliyun</groupId>
+			<artifactId>aliyun-java-sdk-green</artifactId>
+			<version>3.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.51</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aliyun.oss</groupId>
+			<artifactId>aliyun-sdk-oss</artifactId>
+			<version>2.8.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -155,6 +188,10 @@
 
 
 	<repositories>
+		<repository>
+			<id>miaoke-nexus</id>
+			<url>http://nexus.miaokecloud.com/repository/maven-public/</url>
+		</repository>
 		<!-- <repository> <id>gforge.inria.fr-snapshot</id> <name>Maven Repository 
 			for Spoon Snapshot</name> <url>http://spoon.gforge.inria.fr/repositories/snapshots/</url> 
 			<snapshots /> </repository> -->
